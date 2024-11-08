@@ -1,43 +1,114 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body{
+    background-color:rgb(29, 25, 25);/* degradê */
+    padding: 0;
+    margin: 0;
+    
+}
+
 #boxHeader{
-    background-color: rgb(0, 0, 204);
+    background: linear-gradient(to right, rgb(0, 0, 129), rgb(112, 14, 177));
     padding: 0%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 100px;
-    
-    
+    height: 100px; 
 }
 
-body{
-    background-color:rgb(29, 25, 25) ;
-    padding: 0;
-    margin: 0;
-    
-}
+
 #titulo{
-    color: aliceblue;
+    color: rgb(0, 0, 0);
     font-size: 50px;
-    
 }
-#botao{
-border-radius: 4px;
-padding: 4px;
-height: 40px;
-width: 50px;
 
-}
-*{
-    box-sizing: border-box;
-    font-family: 'Times New Roman', Times, serif;
-}
-#fixedButton{
-
-}
 #posicionando{
-display: flex;
-width: 100px;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    
+    }
+
+#boxbanner{
 
 
 }
+
+#botao{
+    background-color: rgb(89, 0, 172);
+    color: aliceblue;
+    font-size: 15px;
+    border-radius: 4px;
+    padding: 4px;
+    height: 40px;
+    width: 50px;
+    position: fixed; 
+    bottom: 20px;  /*  20px acima da parte inferior da tela */
+    right: 20px;  /*  20px à esquerda da borda direita */
+    z-index: 1000;  /* para que o botão fique sobre outros elementos */
+}
+/* style.css */
+
+/* Contêiner do slider */
+.slider {
+    width: 100%;
+    height: 500px;         /* Defina a altura do seu banner */
+    overflow: hidden;      /* Oculta qualquer conteúdo que ultrapasse a área do contêiner */
+    position: relative;    /* Necessário para o posicionamento absoluto das imagens */
+
+}
+
+/* Cada slide */
+.slide {
+    position: absolute;    /* Posiciona as imagens uma sobre a outra */
+    width: 100%;           /* Largura total */
+    height: 100%;          /* Altura total */
+    opacity: 0;            /* Inicialmente as imagens ficam invisíveis */
+    animation: slideAnimation 15s infinite;  /* Aplica a animação */
+}
+
+/* A animação da transição entre as imagens */
+@keyframes slideAnimation {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    33% {
+        opacity: 0;
+    }
+    66% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Definindo as animações para cada imagem */
+.slide:nth-child(1) {
+    animation-delay: 0s;   /* Primeira imagem aparece primeiro */
+}
+
+.slide:nth-child(2) {
+    animation-delay: 7s;   /* Segunda imagem começa após 5 segundos */
+}
+
+.slide:nth-child(3) {
+    animation-delay: 10s;  /* Terceira imagem começa após 10 segundos */
+}
+
+/* Estilo da imagem */
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;     /* Garantir que a imagem preencha o contêiner mantendo a proporção */
+}
+
+
+
